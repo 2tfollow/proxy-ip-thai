@@ -4,966 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proxy IP Thai</title>
-    <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Kanit', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0466c8;
-        }
-
-        .nav-logo img {
-            height: 38px;
-            width: auto;
-            margin-right: 10px;
-            display: block;
-            object-fit: contain;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-menu a:hover {
-            color: #0466c8;
-        }
-
-        /* Navigation Order Button */
-        .nav-order-btn {
-            background: linear-gradient(45deg, #fbbf24, #f59e0b);
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 25px;
-            border: 2px solid transparent;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-order-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .nav-order-btn:hover::before {
-            left: 100%;
-        }
-
-        .nav-order-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(251, 191, 36, 0.5);
-            border-color: #f59e0b;
-        }
-
-        .nav-order-btn i {
-            margin-right: 8px;
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #0466c8;
-            transition: width 0.3s ease;
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .nav-toggle span {
-            width: 25px;
-            height: 3px;
-            background: #333;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #001845 0%, #0466c8 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* High-tech background patterns */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(4, 102, 200, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(4, 102, 200, 0.1) 0%, transparent 50%),
-                linear-gradient(45deg, transparent 30%, rgba(4, 102, 200, 0.05) 50%, transparent 70%);
-            z-index: 1;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 2px,
-                    rgba(4, 102, 200, 0.03) 2px,
-                    rgba(4, 102, 200, 0.03) 4px
-                ),
-                repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 2px,
-                    rgba(4, 102, 200, 0.03) 2px,
-                    rgba(4, 102, 200, 0.03) 4px
-                );
-            z-index: 1;
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Floating tech elements */
-        .hero-content::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(45deg, rgba(4, 102, 200, 0.1), transparent);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-            z-index: -1;
-        }
-
-        .hero-content::after {
-            content: '';
-            position: absolute;
-            bottom: -30px;
-            right: -30px;
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, transparent, rgba(4, 102, 200, 0.1));
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite reverse;
-            z-index: -1;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        .hero-content {
-            color: white;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #ffffff, #0466c8, #ffffff);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 3s ease-in-out infinite;
-            text-shadow: 0 0 30px rgba(4, 102, 200, 0.3);
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .hero-description {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            line-height: 1.8;
-            position: relative;
-            animation: fadeInUp 1s ease-out 0.5s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 0.9;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.8s both;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-size: 1.1rem;
-        }
-
-        .btn i {
-            margin-right: 8px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(45deg, #fbbf24, #f59e0b);
-            color: white;
-            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(251, 191, 36, 0.6);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-secondary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            transition: width 0.3s ease;
-            z-index: -1;
-        }
-
-        .btn-secondary:hover::before {
-            width: 100%;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: #001845;
-        }
-
-        .hero-image {
-            position: relative;
-            z-index: 2;
-        }
-
-        .index__animation {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .index__animation--IPv4_dark {
-            background: transparent; /* ensure no container bg */
-            min-height: 420px;
-            position: relative;
-        }
-
-        .index__animation--IPv4_dark::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 120%;
-            height: 120%;
-            background: radial-gradient(circle, rgba(4, 102, 200, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: pulse 4s ease-in-out infinite;
-            z-index: -1;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
-        }
-
-        .index__animation canvas {
-            border-radius: 0; /* remove rounded canvas corners */
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 100px 0;
-            background: #f8fafc;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #001845;
-            margin-bottom: 20px;
-        }
-
-        .section-header p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, #0466c8, #001845);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2rem;
-            color: white;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #001845;
-            margin-bottom: 15px;
-        }
-
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Pricing Section */
-        .pricing {
-            padding: 100px 0;
-            background: #f8fafc;
-        }
-
-        .prices__top {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .prices__top h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #001845;
-            margin-bottom: 40px;
-        }
-
-        .proxies__container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
-
-        .proxies__advantages {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-            background: white;
-            padding: 10px;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .proxies__advantage {
-            position: relative;
-        }
-
-        .proxies__button {
-            background: transparent;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            font-weight: 600;
-            color: #666;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Kanit', sans-serif;
-        }
-
-        .proxies__button--active {
-            background: linear-gradient(45deg, #0466c8, #001845);
-            color: white;
-            box-shadow: 0 4px 15px rgba(4, 102, 200, 0.3);
-        }
-
-        .proxies__button:hover {
-            background: #f8fafc;
-            color: #0466c8;
-        }
-
-        .proxies__button--active:hover {
-            background: linear-gradient(45deg, #001845, #0466c8);
-        }
-
-        .price-items-list {
-            margin-top: 40px;
-        }
-
-        .price-items-list__container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .price-item-template {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .price-item-template:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .price-item {
-            margin-bottom: 20px;
-        }
-
-        .price-item__quantity-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .price-item__quantity-title {
-            font-size: 0.9rem;
-            color: #666;
-            font-weight: 500;
-        }
-
-        .price-item__quantity {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #001845;
-        }
-
-        .price-item__price-per-one {
-            font-size: 0.9rem;
-            color: #0466c8;
-            font-weight: 600;
-        }
-
-        .price-item__rent-period {
-            margin-bottom: 20px;
-        }
-
-        .custom-days-select {
-            width: 100%;
-        }
-
-        .custom__select__container {
-            width: 100%;
-        }
-
-        .custom__select__label {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 8px;
-            display: block;
-            font-weight: 500;
-        }
-
-        .custom__select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            background: white;
-            font-size: 1rem;
-            color: #333;
-            cursor: pointer;
-            transition: border-color 0.3s ease;
-        }
-
-        .custom__select:focus {
-            outline: none;
-            border-color: #0466c8;
-        }
-
-        .price-item__price-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 20px;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .price-item__price-title {
-            font-size: 1rem;
-            color: #666;
-            font-weight: 500;
-        }
-
-        .price-item__full-price {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #001845;
-        }
-
-        .btn__price-item {
-            width: 100%;
-            background: linear-gradient(45deg, #fbbf24, #f59e0b);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
-        }
-
-        .btn__price-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(251, 191, 36, 0.5);
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .contact h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #001845;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .contact p {
-            font-size: 1.2rem;
-            color: #666;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #f8fafc;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 30px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            color: #001845;
-            margin-bottom: 10px;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #0466c8;
-        }
-
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1rem;
-            min-height: 120px;
-            resize: vertical;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #0466c8;
-        }
-
-        /* Footer */
-        .footer {
-            background: #001845;
-            color: white;
-            padding: 60px 0 20px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #0466c8;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-section ul li a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            color: #0466c8;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .footer-logo img {
-            max-width: 70px;
-            height: auto;
-            display: block;
-            margin-right: 15px;
-        }
-
-        .footer-logo h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0466c8;
-        }
-
-        .footer-description {
-            color: #ccc;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .social-contacts {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-item {
-            display: flex;
-            align-items: center;
-            padding: 10px 15px;
-            background: rgba(4, 102, 200, 0.1);
-            border-radius: 25px;
-            color: #0466c8;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .social-item:hover {
-            background: #0466c8;
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .social-item i {
-            margin-right: 8px;
-            font-size: 1.2rem;
-        }
-
-        .contact-info {
-            margin-top: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            color: #ccc;
-        }
-
-        .contact-item i {
-            margin-right: 10px;
-            color: #0466c8;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 20px;
-            text-align: center;
-        }
-
-        .footer-bottom-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: #0466c8;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: white;
-                flex-direction: column;
-                justify-content: start;
-                align-items: center;
-                padding-top: 50px;
-                transition: left 0.3s ease;
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .nav-order-btn {
-                margin-top: 20px;
-                padding: 12px 24px;
-                font-size: 1.1rem;
-            }
-
-            .nav-toggle {
-                display: flex;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 40px;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .index__animation--IPv4_dark {
-                min-height: 300px;
-            }
-            
-            .index__animation canvas {
-                width: 100%;
-                height: auto;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .index__animation--IPv4_dark {
-                min-height: 250px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="img/proxy-new-removebg-preview.png" type="image/x-icon">
     
     <!-- Security Meta Tags -->
@@ -1427,6 +468,483 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Button click effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.btn');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // ripple origin
+                    const rect = this.getBoundingClientRect();
+                    this.style.setProperty('--x', `${e.clientX - rect.left}px`);
+                    this.style.setProperty('--y', `${e.clientY - rect.top}px`);
+                    this.classList.add('ripple');
+                    setTimeout(() => this.classList.remove('ripple'), 350);
+                    // Add loading state
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> กำลังโหลด...';
+                    this.style.pointerEvents = 'none';
+                    
+                    // Reset after 2 seconds
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.style.pointerEvents = 'auto';
+                    }, 2000);
+                });
+            });
+        });
+
+        // Intersection Observer for reveal-on-scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealables = document.querySelectorAll('[data-reveal]');
+            if (!revealables.length) return;
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            revealables.forEach(el => io.observe(el));
+        });
+
+        // Hero canvas animation (IPv4 dark-like)
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.querySelector('.index__animation canvas');
+            const container = document.querySelector('.index__animation');
+            if (!canvas || !container) return;
+            const ctx = canvas.getContext('2d');
+            let dpr = Math.max(1, window.devicePixelRatio || 1);
+            let width = 0;
+            let height = 0;
+            let t = 0;
+
+            function resize() {
+                // Fit canvas to container
+                const rect = container.getBoundingClientRect();
+                width = Math.max(600, Math.floor(rect.width));
+                height = Math.max(340, Math.floor(rect.height));
+                canvas.style.width = width + 'px';
+                canvas.style.height = height + 'px';
+                canvas.width = Math.floor(width * dpr);
+                canvas.height = Math.floor(height * dpr);
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
+
+            function roundRect(x, y, w, h, r) {
+                const rr = Math.min(r, w / 2, h / 2);
+                ctx.beginPath();
+                ctx.moveTo(x + rr, y);
+                ctx.lineTo(x + w - rr, y);
+                ctx.arcTo(x + w, y, x + w, y + rr, rr);
+                ctx.lineTo(x + w, y + h - rr);
+                ctx.arcTo(x + w, y + h, x + w - rr, y + h, rr);
+                ctx.lineTo(x + rr, y + h);
+                ctx.arcTo(x, y + h, x, y + h - rr, rr);
+                ctx.lineTo(x, y + rr);
+                ctx.arcTo(x, y, x + rr, y, rr);
+                ctx.closePath();
+            }
+
+            function drawLabel(x, y, text) {
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.shadowColor = 'rgba(0,0,0,0.4)';
+                ctx.shadowBlur = 10;
+                ctx.fillStyle = 'rgba(30, 41, 59, 0.8)';
+                ctx.strokeStyle = 'rgba(148, 163, 184, 0.25)';
+                ctx.lineWidth = 1;
+                const paddingX = 14;
+                const paddingY = 8;
+                ctx.font = '500 12px Kanit, sans-serif';
+                const w = ctx.measureText(text).width + paddingX * 2;
+                const h = 28;
+                roundRect(-w / 2, -h / 2, w, h, 14);
+                ctx.fill();
+                ctx.stroke();
+                ctx.fillStyle = 'rgba(203, 213, 225, 0.95)';
+                ctx.textBaseline = 'middle';
+                ctx.textAlign = 'center';
+                ctx.shadowColor = 'rgba(4, 102, 200, 0.3)';
+                ctx.shadowBlur = 5;
+                ctx.fillText(text, 0, 0);
+                ctx.shadowBlur = 0;
+                ctx.restore();
+            }
+
+            function draw() {
+                t += 0.016; // ~60fps
+                ctx.clearRect(0, 0, width, height);
+
+                // Fill entire canvas (no frame)
+                const pad = 0;
+                const cardX = 0;
+                const cardY = 0;
+                const cardW = width;
+                const cardH = height;
+                ctx.save();
+
+                // keep canvas background fully transparent
+
+                // Globe-like sphere with dotted longitudes/latitudes
+                const cx = width * 0.58;
+                const cy = height * 0.53;
+                const R = Math.min(width, height) * 0.28;
+                const sphereGrad = ctx.createRadialGradient(cx - R * 0.2, cy - R * 0.2, R * 0.2, cx, cy, R);
+                sphereGrad.addColorStop(0, 'rgba(59,130,246,0.18)');
+                sphereGrad.addColorStop(1, 'rgba(29,78,216,0.06)');
+                ctx.fillStyle = sphereGrad;
+                ctx.beginPath();
+                ctx.arc(cx, cy, R, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.strokeStyle = 'rgba(59,130,246,0.25)';
+                ctx.lineWidth = 1;
+                ctx.shadowColor = 'rgba(59,130,246,0.5)';
+                ctx.shadowBlur = 8;
+                ctx.stroke();
+                ctx.shadowBlur = 0;
+
+                // Dotted latitude/longitude lines (tilt + slow rotation)
+                ctx.save();
+                const tilt = -0.35;
+                const rot = t * 0.25; // medium speed
+                ctx.translate(cx, cy);
+                ctx.rotate(tilt);
+                const dotColor = 'rgba(147, 197, 253, 0.55)';
+                for (let i = -60; i <= 60; i += 20) {
+                    const r = Math.cos(i * Math.PI / 180) * R;
+                    ctx.beginPath();
+                    for (let a = 0; a <= Math.PI * 2; a += 0.14) {
+                        const x = Math.cos(a + rot) * r;
+                        const y = Math.sin(a + rot) * r * 0.5;
+                        ctx.moveTo(x + 1, y);
+                        ctx.arc(x, y, 1.2, 0, Math.PI * 2);
+                    }
+                    ctx.fillStyle = dotColor;
+                    ctx.shadowColor = 'rgba(147, 197, 253, 0.8)';
+                    ctx.shadowBlur = 3;
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                }
+                // meridians
+                for (let a = 0; a < Math.PI; a += Math.PI / 10) {
+                    ctx.beginPath();
+                    for (let p = -R; p <= R; p += 6) {
+                        const x = Math.sin(a + rot) * (p);
+                        const y = Math.cos(a + rot) * (p) * 0.5;
+                        ctx.moveTo(x + 1, y);
+                        ctx.arc(x, y, 1.2, 0, Math.PI * 2);
+                    }
+                    ctx.fillStyle = dotColor;
+                    ctx.shadowColor = 'rgba(147, 197, 253, 0.8)';
+                    ctx.shadowBlur = 3;
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                }
+                ctx.restore();
+                
+                // no vignette fill so the hero gradient remains visible
+
+                // External pinned labels around sphere
+                const labels = [
+                    { text: 'Friendly API', angle: -0.9 },
+                    { text: '24/7 Support', angle: -2.6 },
+                    { text: 'HTTP, SOCKS5', angle: -3.6 }
+                ];
+                labels.forEach((lb, i) => {
+                    const a = lb.angle + Math.sin(t * 0.5 + i) * 0.05;
+                    const ex = cx + Math.cos(a) * (R + 18);
+                    const ey = cy + Math.sin(a) * (R * 0.9);
+                    // connector
+                    ctx.beginPath();
+                    ctx.moveTo(ex, ey);
+                    ctx.lineTo(ex + (i === 2 ? 40 : -40), ey + (i === 1 ? -10 : 0));
+                    ctx.strokeStyle = 'rgba(94,234,212,0.28)';
+                    ctx.lineWidth = 1;
+                    ctx.shadowColor = 'rgba(94, 234, 212, 0.5)';
+                    ctx.shadowBlur = 4;
+                    ctx.stroke();
+                    ctx.shadowBlur = 0;
+                    // node
+                    ctx.beginPath();
+                    ctx.arc(ex, ey, 3, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(94, 234, 212, 0.9)';
+                    ctx.shadowColor = 'rgba(94, 234, 212, 1)';
+                    ctx.shadowBlur = 6;
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                    // label
+                    drawLabel(ex + (i === 2 ? 60 : -60), ey + (i === 1 ? -18 : -18), lb.text);
+                });
+
+                // Outer network (dense nodes & links)
+                const outerCount = 140; // density
+                const netRadius = R * 1.25;
+                ctx.strokeStyle = 'rgba(96, 165, 250, 0.25)';
+                ctx.fillStyle = 'rgba(96, 165, 250, 0.9)';
+                for (let i = 0; i < outerCount; i++) {
+                    const a = (i / outerCount) * Math.PI * 2 + Math.sin(t * 0.3 + i) * 0.02;
+                    const rr = netRadius + Math.sin(t * 0.4 + i) * 6;
+                    const nx = cx + Math.cos(a) * rr;
+                    const ny = cy + Math.sin(a) * rr * 0.95;
+                    // node
+                    ctx.beginPath();
+                    ctx.arc(nx, ny, 2, 0, Math.PI * 2);
+                    ctx.shadowColor = 'rgba(96, 165, 250, 0.8)';
+                    ctx.shadowBlur = 2;
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                    // connector to sphere surface
+                    const sx = cx + Math.cos(a) * R;
+                    const sy = cy + Math.sin(a) * R * 0.9;
+                    ctx.beginPath();
+                    ctx.moveTo(nx, ny);
+                    ctx.lineTo(sx, sy);
+                    ctx.shadowColor = 'rgba(96, 165, 250, 0.4)';
+                    ctx.shadowBlur = 1;
+                    ctx.stroke();
+                    ctx.shadowBlur = 0;
+                }
+
+                // No stroke/frame
+                ctx.restore();
+
+                requestAnimationFrame(draw);
+            }
+
+            resize();
+            window.addEventListener('resize', resize);
+            // Initial call to draw
+            draw();
+        });
+
+        // Pricing functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Pricing data
+            const pricingData = {
+                ipv4: {
+                    '1': { '14': 198.64, '30': 198.64 },
+                    '5': { '3': 398, '7': 398, '14': 398, '30': 398 },
+                    '20': { '3': 1537.3, '7': 1537.3, '14': 1537.3, '30': 1537.3 },
+                    '50': { '3': 3712.6, '7': 3712.6, '14': 3712.6, '30': 3712.6 },
+                    '100': { '3': 7290.3, '7': 7290.3, '14': 7290.3, '30': 7290.3 }
+                },
+                ipv6: {
+                    '10-99': { '30': 400 },
+                    '100-199': { '30': 3500 },
+                    '200': { '30': 6000 }
+                }
+            };
+
+            // Update pricing based on type
+            function updatePricing(type) {
+                const buttons = document.querySelectorAll('.proxies__button');
+                buttons.forEach(btn => {
+                    btn.classList.remove('proxies__button--active');
+                    if (btn.getAttribute('data-type') === type) {
+                        btn.classList.add('proxies__button--active');
+                    }
+                });
+
+                if (type === 'ipv4') {
+                    updateIPv4Pricing();
+                } else if (type === 'ipv6') {
+                    updateIPv6TierPricing();
+                }
+            }
+
+            // Update IPv4 pricing
+            function updateIPv4Pricing() {
+                const priceItems = document.querySelectorAll('.price-item-template:not(.user-quantity):not(.enterprise)');
+                const ipv4Tiers = [
+                    { quantity: '1 IP', price: 198.64, total: 198.64, days: [14, 30] },
+                    { quantity: '5 IP', price: 79.6, total: 398, days: [3, 7, 14, 30] },
+                    { quantity: '20 IP', price: 76.87, total: 1537.3, days: [3, 7, 14, 30] },
+                    { quantity: '50 IP', price: 74.25, total: 3712.6, days: [3, 7, 14, 30] },
+                    { quantity: '100 IP', price: 72.90, total: 7290.3, days: [3, 7, 14, 30] }
+                ];
+                
+                priceItems.forEach((item, index) => {
+                    item.style.display = 'block'; // Show all items
+                    if (index < ipv4Tiers.length) {
+                        const tier = ipv4Tiers[index];
+                        const quantityElement = item.querySelector('.price-item__quantity');
+                        const pricePerOneElement = item.querySelector('.price-item__price-per-one');
+                        const totalPriceElement = item.querySelector('.price-item__full-price');
+                        const selectElement = item.querySelector('.custom__select');
+                        
+                        if (quantityElement) quantityElement.textContent = tier.quantity;
+                        if (pricePerOneElement) pricePerOneElement.textContent = `฿${tier.price} / IP`;
+                        if (totalPriceElement) totalPriceElement.textContent = `฿${tier.total}`;
+                        
+                        if (selectElement) {
+                            selectElement.innerHTML = '';
+                            tier.days.forEach(day => {
+                                const option = document.createElement('option');
+                                option.value = day;
+                                option.textContent = `${day} วัน`;
+                                selectElement.appendChild(option);
+                            });
+                            selectElement.value = tier.days[0];
+                            selectElement.disabled = false;
+                            selectElement.style.opacity = '1';
+                            selectElement.style.cursor = 'pointer';
+                        }
+                    }
+                });
+            }
+
+            // Update IPv6 tier pricing
+            function updateIPv6TierPricing() {
+                const priceItems = document.querySelectorAll('.price-item-template:not(.user-quantity):not(.enterprise)');
+                const ipv6Tiers = [
+                    { quantity: '10-99 IP', price: 40, total: 400 },
+                    { quantity: '100-199 IP', price: 35, total: 3500 },
+                    { quantity: '200 IP', price: 30, total: 6000 }
+                ];
+                
+                priceItems.forEach((item, index) => {
+                    if (index >= 3) {
+                        item.style.display = 'none'; // Hide extra items
+                    } else {
+                        item.style.display = 'block';
+                        if (index < ipv6Tiers.length) {
+                            const tier = ipv6Tiers[index];
+                            const quantityElement = item.querySelector('.price-item__quantity');
+                            const pricePerOneElement = item.querySelector('.price-item__price-per-one');
+                            const totalPriceElement = item.querySelector('.price-item__full-price');
+                            const selectElement = item.querySelector('.custom__select');
+                            
+                            if (quantityElement) quantityElement.textContent = tier.quantity;
+                            if (pricePerOneElement) pricePerOneElement.textContent = `฿${tier.price} / IP`;
+                            if (totalPriceElement) totalPriceElement.textContent = `฿${tier.total}`;
+                            
+                            if (selectElement) {
+                                selectElement.innerHTML = '<option value="30">30 วัน</option>';
+                                selectElement.value = '30';
+                                selectElement.disabled = true;
+                                selectElement.style.opacity = '0.6';
+                                selectElement.style.cursor = 'not-allowed';
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Reset dropdowns for other types
+            function resetDropdowns() {
+                const selectElements = document.querySelectorAll('.custom__select');
+                const priceItems = document.querySelectorAll('.price-item-template:not(.user-quantity):not(.enterprise)');
+                priceItems.forEach(item => {
+                    item.style.display = 'block'; // Show all price items
+                });
+                selectElements.forEach(select => {
+                    select.innerHTML = `<option value="3">3 วัน</option><option value="7">7 วัน</option><option value="14">14 วัน</option><option value="30">30 วัน</option>`;
+                    select.value = '3';
+                    select.disabled = false;
+                    select.style.opacity = '1';
+                    select.style.cursor = 'pointer';
+                });
+            }
+
+            // Event listeners for pricing buttons
+            const pricingButtons = document.querySelectorAll('.proxies__button');
+            pricingButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const type = this.getAttribute('data-type');
+                    updatePricing(type);
+                });
+            });
+
+            // Event listeners for price item dropdowns
+            const priceItemDropdowns = document.querySelectorAll('.custom__select');
+            priceItemDropdowns.forEach(dropdown => {
+                dropdown.addEventListener('change', function() {
+                    const days = this.value;
+                    const priceItem = this.closest('.price-item-template');
+                    const quantityElement = priceItem.querySelector('.price-item__quantity');
+                    const pricePerOneElement = priceItem.querySelector('.price-item__price-per-one');
+                    const totalPriceElement = priceItem.querySelector('.price-item__full-price');
+                    
+                    if (quantityElement && pricePerOneElement && totalPriceElement) {
+                        updateIPv4PriceForDays(quantityElement.textContent, days, pricePerOneElement, totalPriceElement);
+                    }
+                });
+            });
+
+            // Update price for specific days
+            function updateIPv4PriceForDays(quantityText, days, pricePerOneElement, totalPriceElement) {
+                const ipv4Pricing = {
+                    '1 IP': { '14': { price: 198.64, total: 198.64 }, '30': { price: 198.64, total: 198.64 } },
+                    '5 IP': { '3': { price: 79.6, total: 398 }, '7': { price: 79.6, total: 398 }, '14': { price: 79.6, total: 398 }, '30': { price: 79.6, total: 398 } },
+                    '20 IP': { '3': { price: 76.87, total: 1537.3 }, '7': { price: 76.87, total: 1537.3 }, '14': { price: 76.87, total: 1537.3 }, '30': { price: 76.87, total: 1537.3 } },
+                    '50 IP': { '3': { price: 74.25, total: 3712.6 }, '7': { price: 74.25, total: 3712.6 }, '14': { price: 74.25, total: 3712.6 }, '30': { price: 74.25, total: 3712.6 } },
+                    '100 IP': { '3': { price: 72.90, total: 7290.3 }, '7': { price: 72.90, total: 7290.3 }, '14': { price: 72.90, total: 7290.3 }, '30': { price: 72.90, total: 7290.3 } }
+                };
+                
+                const pricing = ipv4Pricing[quantityText];
+                if (pricing && pricing[days]) {
+                    pricePerOneElement.textContent = `฿${pricing[days].price} / IP`;
+                    totalPriceElement.textContent = `฿${pricing[days].total}`;
+                }
+            }
+
+            // Buy button functionality
+            const buyButtons = document.querySelectorAll('.btn__price-item');
+            buyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    window.open('https://lin.ee/rs19dYB', '_blank');
+                });
+            });
+
+            // Initialize with IPv4 pricing
+            updatePricing('ipv4');
+        });
+
+        // Contact form functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.querySelector('.contact-form form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    window.open('https://lin.ee/rs19dYB', '_blank');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
