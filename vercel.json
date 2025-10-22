@@ -1,12 +1,6 @@
 {
   "version": 2,
   "name": "proxy-ip-thai",
-  "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
-  ],
   "rewrites": [
     {
       "source": "/(.*)",
