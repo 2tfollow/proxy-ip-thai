@@ -331,8 +331,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function resize() {
         // Fit canvas to container
         const rect = container.getBoundingClientRect();
-        width = Math.max(600, Math.floor(rect.width));
-        height = Math.max(340, Math.floor(rect.height));
+        width = Math.max(300, Math.floor(rect.width)); // ลดขนาดขั้นต่ำสำหรับมือถือ
+        height = Math.max(200, Math.floor(rect.height)); // ลดขนาดขั้นต่ำสำหรับมือถือ
+        
+        // ตรวจสอบว่าเป็นมือถือหรือไม่
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+            width = Math.min(width, 400); // จำกัดขนาดบนมือถือ
+            height = Math.min(height, 300);
+        }
+        
         canvas.style.width = width + 'px';
         canvas.style.height = height + 'px';
         canvas.width = Math.floor(width * dpr);
@@ -518,8 +526,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     resize();
+    
+    // ตรวจสอบว่าเป็นมือถือหรือไม่และปรับการแสดงผล
+    function checkMobile() {
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+            // ลดความซับซ้อนของ animation บนมือถือ
+            t = t * 0.5; // ช้าลง
+        }
+    }
+    
+    // เรียกใช้เมื่อ resize
+    window.addEventListener('resize', function() {
+        resize();
+        checkMobile();
+    });
+    
+    // Initial call to draw
+    checkMobile();
     draw();
-    window.addEventListener('resize', resize);
 });
 // Pricing Table Functionality
 document.addEventListener('DOMContentLoaded', function() {

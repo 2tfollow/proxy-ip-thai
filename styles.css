@@ -1241,11 +1241,16 @@ body {
     
     .index__animation--IPv4_dark {
         min-height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .index__animation canvas {
         width: 100%;
         height: auto;
+        max-width: 400px;
+        max-height: 300px;
     }
 
     .contact-content {
@@ -1310,6 +1315,14 @@ body {
     
     .index__animation--IPv4_dark {
         min-height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .index__animation canvas {
+        max-width: 350px;
+        max-height: 250px;
     }
 
     .contact-form {
@@ -1434,5 +1447,6 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     background: #001845;
 }
-/ *   U p d a t e d :   1 0 / 2 2 / 2 0 2 5   1 6 : 3 0 : 3 9   * /  
+/ *   U p d a t e d :   1 0 / 2 2 / 2 0 2 5   1 6 : 3 0 : 3 9   * / 
+ 
  
